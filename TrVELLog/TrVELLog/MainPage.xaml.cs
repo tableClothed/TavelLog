@@ -13,5 +13,16 @@ namespace TrVELLog
         {
             InitializeComponent();
         }
+
+        private void LoginButton_Clicked(object sender, EventArgs e)
+        {
+            bool a = string.IsNullOrEmpty(password.Text);
+            bool b = string.IsNullOrEmpty(login.Text);
+
+            if (!a && !b)
+            {
+                Navigation.PushAsync(new HomePage());
+            }
+        }
     }
 }

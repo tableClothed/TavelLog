@@ -4,11 +4,23 @@
              xmlns:local="clr-namespace:TrVELLog"
              x:Class="TrVELLog.MainPage">
 
-    <StackLayout>
+    <StackLayout VerticalOptions="Center" Margin="20">
+        <Entry 
+            Keyboard="Email"
+            Placeholder="Login"
+            x:Name="login"
+            />
+        <Entry 
+            IsPassword="True"
+            Placeholder="Hasło"
+            x:Name="password"/>
+        <Button 
+            x:Name="LoginButton"
+            Clicked="LoginButton_Clicked"
+            Text="ZALOGUJ SIĘ" 
+            BackgroundColor="SaddleBrown"
+            TextColor="Beige"/>
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
     </StackLayout>
 
 </ContentPage>
