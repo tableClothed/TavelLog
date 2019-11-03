@@ -8,17 +8,21 @@
         <Entry 
             Keyboard="Email"
             Placeholder="Login"
+            Text="Totalne"
             x:Name="login"
             />
         <Entry 
             IsPassword="True"
             Placeholder="Hasło"
+            Text="Totalne"
+
             x:Name="password"/>
+        
         <Button 
             x:Name="LoginButton"
             Clicked="LoginButton_Clicked"
-            Text="ZALOGUJ SIĘ" 
-            BackgroundColor="SaddleBrown"
+            Text="ZALOGUJ SIĘ"
+            Style="{StaticResource normalButton}"
             TextColor="Beige"/>
         <!-- Place new controls here -->
     </StackLayout>
