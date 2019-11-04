@@ -20,6 +20,8 @@ namespace TrVELLog
         public MapPage()
         {
             InitializeComponent();
+
+            GetPermissions();
         }
 
         public async void GetPermissions()
@@ -28,7 +30,7 @@ namespace TrVELLog
             {
                 var status = await CrossPermissions.
                                 Current.CheckPermissionStatusAsync
-                                (Plugin.Permissions.Abstractions.Permission.LocationWhenInUse);
+                                (Permission.LocationWhenInUse);
 
                 if (status != PermissionStatus.Granted)
                 {
@@ -36,6 +38,7 @@ namespace TrVELLog
                     {
                         await DisplayAlert("Need your location", "We need to access your location", "Ok");
                     }
+
                     var results = await CrossPermissions.Current.
                     RequestPermissionsAsync(Permission.LocationWhenInUse);
 
@@ -47,6 +50,8 @@ namespace TrVELLog
                 {
                     hasLocationPersmission = true;
                     locationsMap.IsShowingUser = true;
+
+                    GetLocation();
                 }
                 else
                 {
