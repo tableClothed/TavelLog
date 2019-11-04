@@ -21,6 +21,8 @@ namespace TrVELLog
             InitializeComponent();
 
             MainPage = new NavigationPage(new MainPage());
+
+            DatabaseLocation = databaseLocation;
         }
 
         protected override void OnStart()

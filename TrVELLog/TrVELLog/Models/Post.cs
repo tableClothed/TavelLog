@@ -6,7 +6,7 @@ using SQLite;
 
 namespace TrVELLog.Models
 {
-    class Post
+    public class Post
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
