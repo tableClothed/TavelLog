@@ -5,10 +5,17 @@
              x:Class="TrVELLog.HomePage">
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="Add"
+                     Icon="ic_action_add.png"
                      Clicked="ToolbarItem_Clicked"/>
     </TabbedPage.ToolbarItems>
-<local:HistoryPage Title="History"/>
-<local:MapPage Title="Map"/>
-<local:ProfilePage Title="Profile"/>
+<local:HistoryPage
+    Icon="ic_action_home.png"
+    Title="History"/>
+<local:MapPage
+    Icon="ic_action_map.png"
+    Title="Map"/>
+<local:ProfilePage
+    Icon="ic_action_person.png"
+    Title="Profile"/>
 
 </TabbedPage>

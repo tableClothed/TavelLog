@@ -2,12 +2,13 @@
 using Plugin.Geolocator.Abstractions;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using TrVELLog.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -78,12 +79,15 @@ namespace TrVELLog
             
         }
 
-        protected override void OnDisappearing()
+        protected override async void OnDisappearing()
         {
             base.OnDisappearing();
 
-            CrossGeolocator.Current.StopListeningAsync();
-            CrossGeolocator.Current.PositionChanged -= Locator_PositionChanged;
+            var locator = CrossGeolocator.Current;
+
+            locator.PositionChanged -= Locator_PositionChanged;
+            await locator.StopListeningAsync();
+
         }
 
         private void Locator_PositionChanged(object sender, PositionEventArgs e)
@@ -108,6 +112,43 @@ namespace TrVELLog
             var center = new Xamarin.Forms.Maps.Position(position.Latitude, position.Longitude);
             var span = new Xamarin.Forms.Maps.MapSpan(center, 1, 1);
             locationsMap.MoveToRegion(span);
+
+            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            {
+                conn.CreateTable<Post>();
+                var posts = conn.Table<Post>().ToList();
+
+                DisplayInMap(posts);
+
+            }
+        }
+
+        private void DisplayInMap(List<Post> posts)
+        {
+            try
+            {
+                foreach (var post in posts)
+                {
+                    var position = new Xamarin.Forms.Maps.Position(post.Latitude, post.Longitude);
+
+                    var pin = new Xamarin.Forms.Maps.Pin()
+                    {
+                        Type = Xamarin.Forms.Maps.PinType.SavedPin,
+                        Position = position,
+                        Label = post.VenueName,
+                        Address = post.Address
+                    };
+
+                    locationsMap.Pins.Add(pin);
+                }
+            } catch (NullReferenceException nre)
+            {
+
+            } catch (Exception ex)
+            {
+
+            }
+            
         }
     }
 }

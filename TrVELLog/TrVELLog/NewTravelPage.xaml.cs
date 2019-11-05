@@ -12,15 +12,15 @@ using Xamarin.Forms.Xaml;
 
 namespace TrVELLog
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NewTravelPage : ContentPage
-	{
-		public NewTravelPage ()
-		{
-			InitializeComponent ();
-		}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class NewTravelPage : ContentPage
+    {
+        public NewTravelPage()
+        {
+            InitializeComponent();
+        }
 
-        protected async override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
 
@@ -28,29 +28,48 @@ namespace TrVELLog
             var position = await locator.GetPositionAsync();
 
             var venues = await VenueLogic.GetVenues(position.Latitude, position.Longitude);
-
             venueListView.ItemsSource = venues;
         }
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            Post post = new Post()
+            try
             {
-                Experience = experienceEntry.Text
-            };
+                var selectedVenue = venueListView.SelectedItem as Venue;
+                var firstCategory = selectedVenue.categories.FirstOrDefault();
 
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
-            {
-                conn.CreateTable<Post>();
-                int rows = conn.Insert(post);
+                Post post = new Post()
+                {
+                    Experience = experienceEntry.Text,
+                    CategoryId = firstCategory.id,
+                    CategoryName = firstCategory.name,
+                    Address = selectedVenue.location.address,
+                    Distance = selectedVenue.location.distance,
+                    Latitude = selectedVenue.location.lat,
+                    Longitude = selectedVenue.location.lng,
+                    VenueName = selectedVenue.name
+                };
 
-                if (rows > 0)
-                    DisplayAlert("SUCCESS", "Experience successfully inserted", "Ok");
-                else
-                    DisplayAlert("FAILURE", "Experience failed to be inserted", "Ok");
+                using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                {
+                    conn.CreateTable<Post>();
+                    int rows = conn.Insert(post);
+
+                    if (rows > 0)
+                        DisplayAlert("SUCCESS", "Experience succesfully inserter", "Ok");
+                    else
+                        DisplayAlert("FAILURE", "Experience failed to be inserted", "Ok");
+                }
             }
-                
-            
+            catch (NullReferenceException ee)
+            {
+                DisplayAlert("ALERT", "e is null", "Ok");
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("ALERT", ex.Message, "Ok");
+            }
+
         }
     }
 }

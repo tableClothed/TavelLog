@@ -12,6 +12,10 @@ namespace TrVELLog
         public MainPage()
         {
             InitializeComponent();
+
+            var assembly = typeof(MainPage);
+
+            iconImage.Source = ImageSource.FromResource("TrVELLog.Assets.Images.plane.jpg", assembly);
         }
 
         private void LoginButton_Clicked(object sender, EventArgs e)

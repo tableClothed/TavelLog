@@ -5,6 +5,11 @@
              x:Class="TrVELLog.MainPage">
 
     <StackLayout VerticalOptions="Center" Margin="20">
+        <Image x:Name="iconImage"
+               HeightRequest="100"
+               Aspect="AspectFit"
+               HorizontalOptions="FillAndExpand"
+               Margin="0, 0, 0, 50"/>
         <Entry 
             Keyboard="Email"
             Placeholder="Login"
