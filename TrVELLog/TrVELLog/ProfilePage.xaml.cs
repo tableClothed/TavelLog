@@ -22,14 +22,11 @@ namespace TrVELLog
         {
             base.OnAppearing();
 
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
-            {
-                var postTable = conn.Table<Post>().ToList();
+            var categoriesCount = Venue.PostCategories();
 
-                var categories = postTable.OrderBy(p => p.CategoryId).Where(p => p.CategoryName != null).Distinct().ToList();
+            categoriesListView.ItemsSource = categoriesCount;
 
-                postCountLabel.Text = postTable.Count.ToString();
-            }
+            postCountLabel.Text = postTable.Count.ToString();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using TrVELLog.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,6 +10,7 @@ namespace TrVELLog
     {
 
         public static string DatabaseLocation = string.Empty;
+        public static User user = new User();
         public App()
         {
             InitializeComponent();

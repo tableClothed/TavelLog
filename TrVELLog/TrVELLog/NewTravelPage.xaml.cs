@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TrVELLog.Logic;
 using TrVELLog.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -27,7 +26,7 @@ namespace TrVELLog
             var locator = CrossGeolocator.Current;
             var position = await locator.GetPositionAsync();
 
-            var venues = await VenueLogic.GetVenues(position.Latitude, position.Longitude);
+            var venues = await Venue.GetVenues(position.Latitude, position.Longitude);
             venueListView.ItemsSource = venues;
         }
 
@@ -50,16 +49,7 @@ namespace TrVELLog
                     VenueName = selectedVenue.name
                 };
 
-                using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
-                {
-                    conn.CreateTable<Post>();
-                    int rows = conn.Insert(post);
-
-                    if (rows > 0)
-                        DisplayAlert("SUCCESS", "Experience succesfully inserter", "Ok");
-                    else
-                        DisplayAlert("FAILURE", "Experience failed to be inserted", "Ok");
-                }
+                Post.Insert(post);
             }
             catch (NullReferenceException ee)
             {

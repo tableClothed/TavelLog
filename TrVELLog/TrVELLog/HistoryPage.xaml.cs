@@ -22,12 +22,7 @@ namespace TrVELLog
         {
             base.OnAppearing();
 
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
-            {
-                conn.CreateTable<Post>();
-                var posts = conn.Table<Post>().ToList();
-                postListView.ItemsSource = posts;
-            }
+            postListView.ItemsSource = Post.Read();
                 
         }
 
