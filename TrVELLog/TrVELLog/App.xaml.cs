@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using TrVELLog.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,6 +11,7 @@ namespace TrVELLog
     {
 
         public static string DatabaseLocation = string.Empty;
+        public static SQLiteAsyncConnection sql_conn = new SQLiteAsyncConnection(DatabaseLocation);
         public static User user = new User();
         public App()
         {
@@ -22,9 +24,10 @@ namespace TrVELLog
         {
             InitializeComponent();
 
+            DatabaseLocation = databaseLocation;
+
             MainPage = new NavigationPage(new MainPage());
 
-            DatabaseLocation = databaseLocation;
         }
 
         protected override void OnStart()

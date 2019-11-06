@@ -18,11 +18,13 @@ namespace TrVELLog
 			InitializeComponent ();
 		}
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            postListView.ItemsSource = Post.Read();
+            var posts = await Post.Read();
+
+            postListView.ItemsSource = posts;
                 
         }
 
