@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TrVELLog.RegisterPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" Margin="20" x:Name="containerStackLayout">
+            <Entry 
+                Keyboard="Email"
+                Text="{Binding Email, Mode=TwoWay}"
+                Placeholder="Login"
+                TextColor="{StaticResource newColor}"
+                x:Name="emailEntry"/>
+            
+            <Entry 
+                IsPassword="True"
+                Placeholder="Hasło"
+                Text="{Binding Password, Mode=TwoWay}"
+                TextColor="{StaticResource newColor}"
+                x:Name="passwordEntry"/>
+            
+            <Entry 
+                IsPassword="True"
+                Placeholder="Hasło"
+                TextColor="{StaticResource newColor}"
+                x:Name="confirmPasswordEntry"/>
+            
+            <Button 
+                x:Name="registerButton"
+                Clicked="RegisterButton_Clicked"
+                Text="ZAREJESTRUJ SIĘ"
+                Style="{StaticResource normalButton}"
+                TextColor="Beige"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -6,30 +6,35 @@
 
     <StackLayout VerticalOptions="Center" Margin="20">
         <Image x:Name="iconImage"
-               HeightRequest="100"
+               HeightRequest="70"
                Aspect="AspectFit"
                HorizontalOptions="FillAndExpand"
                Margin="0, 0, 0, 50"/>
         <Entry 
             Keyboard="Email"
             Placeholder="Login"
-            Text="Totalne"
+            Text="{Binding Email, Mode=TwoWay}"
             x:Name="login"
             />
         <Entry 
             IsPassword="True"
             Placeholder="Hasło"
-            Text="Totalne"
-
+            Text="{Binding Password,Mode=TwoWay}"
             x:Name="password"/>
         
         <Button 
             x:Name="LoginButton"
             Clicked="LoginButton_Clicked"
             Text="ZALOGUJ SIĘ"
+            Command="{Binding LoginCommand}"
+            CommandParameter="{Binding User}"
             Style="{StaticResource normalButton}"
             TextColor="Beige"/>
-        <!-- Place new controls here -->
+
+        <Button x:Name="registerUserButton"
+                Text="Register"
+                HorizontalOptions="End"
+                Clicked="RegisterUserButton_Clicked"/>
     </StackLayout>
 
 </ContentPage>

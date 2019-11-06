@@ -9,9 +9,10 @@
                      Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout x:Name="containerSlackLayout">
             <Entry 
                 x:Name="experienceEntry"
+                Text="{Binding Experience, Mode=TwoWay}"
                 Placeholder="Write your experience"/>
 
             <ListView x:Name="venueListView"

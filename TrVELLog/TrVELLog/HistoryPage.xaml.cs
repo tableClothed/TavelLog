@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrVELLog.Models;
+using TrVELLog.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,9 +14,13 @@ namespace TrVELLog
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class HistoryPage : ContentPage
 	{
+        HomeVM viewModel;
 		public HistoryPage ()
 		{
 			InitializeComponent ();
+
+            viewModel = new HomeVM();
+            BindingContext = viewModel;
 		}
 
         protected override async void OnAppearing()

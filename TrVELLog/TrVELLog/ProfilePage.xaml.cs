@@ -18,15 +18,17 @@ namespace TrVELLog
 			InitializeComponent ();
 		}
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
 
-            var categoriesCount = Venue.PostCategories();
+            var posts = await Post.Read();
+
+            var categoriesCount = Post.PostCategories(posts);
 
             categoriesListView.ItemsSource = categoriesCount;
 
-            postCountLabel.Text = postTable.Count.ToString();
+            postCountLabel.Text = posts.Count.ToString();
         }
     }
 }

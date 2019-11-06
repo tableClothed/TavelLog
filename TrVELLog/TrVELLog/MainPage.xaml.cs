@@ -3,30 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrVELLog.ViewModels;
 using Xamarin.Forms;
 
 namespace TrVELLog
 {
     public partial class MainPage : ContentPage
     {
+        MainVM viewModel;
         public MainPage()
         {
             InitializeComponent();
 
             var assembly = typeof(MainPage);
 
+            viewModel = new MainVM();
+            BindingContext = viewModel;
+
             iconImage.Source = ImageSource.FromResource("TrVELLog.Assets.Images.plane.jpg", assembly);
         }
 
-        private void LoginButton_Clicked(object sender, EventArgs e)
+        private void RegisterUserButton_Clicked(object sender, EventArgs e)
         {
-            bool a = string.IsNullOrEmpty(password.Text);
-            bool b = string.IsNullOrEmpty(login.Text);
-
-            if (!a && !b)
-            {
-                Navigation.PushAsync(new HomePage());
-            }
+            Navigation.PushAsync(new RegisterPage());
         }
     }
 }
