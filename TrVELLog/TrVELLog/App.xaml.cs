@@ -24,9 +24,10 @@ namespace TrVELLog
         {
             InitializeComponent();
 
+            MainPage = new NavigationPage(new MainPage());
+
             DatabaseLocation = databaseLocation;
 
-            MainPage = new NavigationPage(new MainPage());
 
         }
 

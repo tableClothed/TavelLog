@@ -5,34 +5,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="TrVELLog.RegisterPage">
-    <ContentPage.Content>
+    
         <StackLayout VerticalOptions="Center" Margin="20" x:Name="containerStackLayout">
-            <Entry 
-                Keyboard="Email"
-                Text="{Binding Email, Mode=TwoWay}"
-                Placeholder="Login"
-                TextColor="{StaticResource newColor}"
-                x:Name="emailEntry"/>
-            
-            <Entry 
-                IsPassword="True"
-                Placeholder="Hasło"
-                Text="{Binding Password, Mode=TwoWay}"
-                TextColor="{StaticResource newColor}"
-                x:Name="passwordEntry"/>
-            
-            <Entry 
-                IsPassword="True"
-                Placeholder="Hasło"
-                TextColor="{StaticResource newColor}"
-                x:Name="confirmPasswordEntry"/>
-            
-            <Button 
-                x:Name="registerButton"
-                Clicked="RegisterButton_Clicked"
-                Text="ZAREJESTRUJ SIĘ"
+          <Entry x:Name="emailEntry"
+                 Text="{Binding Email, Mode=TwoWay}"
+                 Placeholder="Email address"
+                TextColor="{StaticResource newColor}"/>
+
+          <Entry x:Name="passwordEntry"
+                 IsPassword="true"
+                 Text="{Binding Password, Mode=TwoWay}"
+                 Placeholder="Password"
+                TextColor="{StaticResource newColor}"/>
+
+          <Entry x:Name="confirmPasswordEntry"
+                 Text="{Binding ConfirmPassword, Mode=TwoWay}"
+                 Placeholder="Confirm password"
+                 TextColor="{StaticResource newColor}"
+                 IsPassword="True"/>
+
+          <Button x:Name="registerButton"
+                  Margin="0,50,0,0"
+                  Text="Register"
+                  Command="{Binding RegisterCommand}"
+                  CommandParameter="{Binding User}"
                 Style="{StaticResource normalButton}"
                 TextColor="Beige"/>
         </StackLayout>
-    </ContentPage.Content>
 </ContentPage>

@@ -10,7 +10,7 @@ namespace TrVELLog.Models
 {
     public class Post : INotifyPropertyChanged
     {
-        public string id;
+        private string id;
         public string Id
         {
             get { return id; }
@@ -20,7 +20,7 @@ namespace TrVELLog.Models
                 OnPropertyChanged("Id");
             }
         }
-        public string experience;
+        private string experience;
 
         public string Experience
         {
@@ -30,7 +30,7 @@ namespace TrVELLog.Models
                 OnPropertyChanged("Experience");
             }
         }
-        public string venueName { get; set; }
+        private string venueName { get; set; }
         public string VenueName
         {
             get { return venueName; }
@@ -40,7 +40,7 @@ namespace TrVELLog.Models
                 OnPropertyChanged("VenueName");
             }
         }
-        public string categoryId;
+        private string categoryId;
         public string CategoryId
         {
             get { return categoryId; }
@@ -50,7 +50,7 @@ namespace TrVELLog.Models
                 OnPropertyChanged("CategoryId");
             }
         }
-        public string categoryName;
+        private string categoryName;
         public string CategoryName
         {
             get { return categoryName; }
@@ -60,7 +60,7 @@ namespace TrVELLog.Models
                 OnPropertyChanged("CategoryName");
             }
         }
-        public string address;
+        private string address;
         public string Address
         {
             get { return address; }
@@ -70,7 +70,7 @@ namespace TrVELLog.Models
                 OnPropertyChanged("Address");
             }
         }
-        public double longitude;
+        private double longitude;
         public double Longitude
         {
             get { return longitude; }
@@ -90,7 +90,7 @@ namespace TrVELLog.Models
                 OnPropertyChanged("Latitude");
             }
         }
-        public int distance;
+        private int distance;
         public int Distance
         {
             get { return distance; }
@@ -100,7 +100,7 @@ namespace TrVELLog.Models
                 OnPropertyChanged("Distance");
             }
         }
-        public string userId;
+        private string userId;
         public string UserId
         {
             get { return userId; }
@@ -127,14 +127,14 @@ namespace TrVELLog.Models
 
         public async static Task<List<Post>> Read()
         {
+            await App.sql_conn.CreateTableAsync<Post>();
             var posts = await App.sql_conn.Table<Post>().ToListAsync() as List<Post>;
 
             return posts;
         }
 
         public static Dictionary<string, int> PostCategories(List<Post> posts)
-        {
-           
+        { 
             var categories = posts.OrderBy(u => u.CategoryId).Select(u => u.CategoryName).Distinct().ToList();
 
             Dictionary<string, int> categoriesCount = new Dictionary<string, int>();

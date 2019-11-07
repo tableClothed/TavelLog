@@ -9,7 +9,7 @@ namespace TrVELLog.Models
 {
     public class User : INotifyPropertyChanged
     {
-        public string id;
+        private string id;
         public string Id
         {
             get { return id; }
@@ -19,7 +19,7 @@ namespace TrVELLog.Models
                 OnPropertyChanged("Id");
             }
         }
-        public string email;
+        private string email;
         public string Email
         {
             get { return email; }
@@ -29,7 +29,7 @@ namespace TrVELLog.Models
                 OnPropertyChanged("Email");
             }
         }
-        public string password;
+        private string password;
         public string Password
         {
             get { return password; }
@@ -37,6 +37,16 @@ namespace TrVELLog.Models
             {
                 password = value;
                 OnPropertyChanged("Password");
+            }
+        }
+        private string confirmPassword;
+        public string ConfirmPassword
+        {
+            get { return confirmPassword; }
+            set
+            {
+                confirmPassword = value;
+                OnPropertyChanged("ConfirmPassword");
             }
         }
 
@@ -74,15 +84,16 @@ namespace TrVELLog.Models
 
         public static async void Register(User user)
         {
-            if (string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password))
-                throw new Exception("Nieprawidlowe haslo lub email");
+            //if (string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password))
+                //throw new Exception("Nieprawidlowe haslo lub email");
 
             await App.sql_conn.CreateTableAsync<User>();
             await App.sql_conn.InsertAsync(user);
         }
         private void OnPropertyChanged(string propertyName)
         {
-            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

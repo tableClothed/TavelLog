@@ -22,10 +22,5 @@ namespace TrVELLog
 
             iconImage.Source = ImageSource.FromResource("TrVELLog.Assets.Images.plane.jpg", assembly);
         }
-
-        private void RegisterUserButton_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new RegisterPage());
-        }
     }
 }

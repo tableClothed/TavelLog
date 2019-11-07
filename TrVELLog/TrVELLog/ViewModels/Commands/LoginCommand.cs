@@ -8,7 +8,7 @@ namespace TrVELLog.ViewModels.Commands
 {
     public class LoginCommand : ICommand
     {
-        public MainVM ViewModel { get; set; }
+        private MainVM ViewModel;
 
         public LoginCommand(MainVM viewModel)
         {

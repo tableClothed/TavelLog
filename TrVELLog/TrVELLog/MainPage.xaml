@@ -10,21 +10,18 @@
                Aspect="AspectFit"
                HorizontalOptions="FillAndExpand"
                Margin="0, 0, 0, 50"/>
-        <Entry 
+        <Entry x:Name="emailEntry"
             Keyboard="Email"
             Placeholder="Login"
-            Text="{Binding Email, Mode=TwoWay}"
-            x:Name="login"
-            />
-        <Entry 
+            Text="{Binding Email, Mode=TwoWay}"/>
+
+        <Entry x:Name="passwordEntry"
             IsPassword="True"
             Placeholder="Hasło"
-            Text="{Binding Password,Mode=TwoWay}"
-            x:Name="password"/>
+            Text="{Binding Password,Mode=TwoWay}"/>
         
         <Button 
             x:Name="LoginButton"
-            Clicked="LoginButton_Clicked"
             Text="ZALOGUJ SIĘ"
             Command="{Binding LoginCommand}"
             CommandParameter="{Binding User}"
@@ -34,7 +31,7 @@
         <Button x:Name="registerUserButton"
                 Text="Register"
                 HorizontalOptions="End"
-                Clicked="RegisterUserButton_Clicked"/>
+                Command="{Binding RegisterNavigationCommand}"/>
     </StackLayout>
 
 </ContentPage>
