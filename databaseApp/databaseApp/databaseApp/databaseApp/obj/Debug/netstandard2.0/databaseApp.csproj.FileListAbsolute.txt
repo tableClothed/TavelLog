@@ -1,0 +1,15 @@
+R:\Work\Xamarin3\databaseApp\databaseApp\databaseApp\bin\Debug\netstandard2.0\databaseApp.deps.json
+R:\Work\Xamarin3\databaseApp\databaseApp\databaseApp\bin\Debug\netstandard2.0\databaseApp.dll
+R:\Work\Xamarin3\databaseApp\databaseApp\databaseApp\bin\Debug\netstandard2.0\ref\databaseApp.dll
+R:\Work\Xamarin3\databaseApp\databaseApp\databaseApp\bin\Debug\netstandard2.0\databaseApp.pdb
+R:\Work\Xamarin3\databaseApp\databaseApp\databaseApp\obj\Debug\netstandard2.0\databaseApp.csprojAssemblyReference.cache
+R:\Work\Xamarin3\databaseApp\databaseApp\databaseApp\obj\Debug\netstandard2.0\App.xaml.g.cs
+R:\Work\Xamarin3\databaseApp\databaseApp\databaseApp\obj\Debug\netstandard2.0\databaseApp.csproj.CoreCompileInputs.cache
+R:\Work\Xamarin3\databaseApp\databaseApp\databaseApp\obj\Debug\netstandard2.0\databaseApp.AssemblyInfoInputs.cache
+R:\Work\Xamarin3\databaseApp\databaseApp\databaseApp\obj\Debug\netstandard2.0\databaseApp.AssemblyInfo.cs
+R:\Work\Xamarin3\databaseApp\databaseApp\databaseApp\obj\Debug\netstandard2.0\databaseApp.dll
+R:\Work\Xamarin3\databaseApp\databaseApp\databaseApp\obj\Debug\netstandard2.0\ref\databaseApp.dll
+R:\Work\Xamarin3\databaseApp\databaseApp\databaseApp\obj\Debug\netstandard2.0\databaseApp.pdb
+R:\Work\Xamarin3\databaseApp\databaseApp\databaseApp\obj\Debug\netstandard2.0\NoteEntryPage.xaml.g.cs
+R:\Work\Xamarin3\databaseApp\databaseApp\databaseApp\obj\Debug\netstandard2.0\NotesPage.xaml.g.cs
+R:\Work\Xamarin3\databaseApp\databaseApp\databaseApp\obj\Debug\netstandard2.0\XamlC.stamp
