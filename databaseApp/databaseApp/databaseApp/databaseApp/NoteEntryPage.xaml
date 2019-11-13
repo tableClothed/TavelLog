@@ -37,7 +37,12 @@
                         Text="Delete"
                         x:Name="deleteButton"
                         Clicked="DeleteButton_Clicked"/>
-            </Grid>
+            <Button Grid.Column="2"
+                    BackgroundColor="LightYellow"
+                        Text="Alert"
+                        x:Name="alertButton"
+                        Clicked="AlertButton_Clicked"/>
+        </Grid>
         </StackLayout>
     
 </ContentPage>

@@ -1,5 +1,7 @@
 databaseApp
 FormsViewGroup
+Plugin.LocalNotifications.Abstractions
+Plugin.LocalNotifications
 SQLite-net
 SQLitePCLRaw.batteries_green
 SQLitePCLRaw.batteries_v2

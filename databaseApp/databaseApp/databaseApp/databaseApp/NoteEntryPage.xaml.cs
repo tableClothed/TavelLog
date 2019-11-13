@@ -1,10 +1,6 @@
 ﻿using databaseApp.Models;
+using Plugin.LocalNotifications;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -34,6 +30,11 @@ namespace databaseApp
 
             await App.Database.DeleteNoteAsync(note);
             await Navigation.PopAsync();
+        }
+
+        private void AlertButton_Clicked(object sender, EventArgs e)
+        {
+            CrossLocalNotifications.Current.Show("title", "body");
         }
     }
 }

@@ -9,6 +9,8 @@ namespace databaseApp
     public partial class App : Application
     {
         static NoteDatabase database;
+        // LocalNotificationsImplementation.NotificationIconId = Resource.Drawable.icon;
+
         public static NoteDatabase Database
         {
             get

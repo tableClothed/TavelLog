@@ -113,6 +113,8 @@ class MonoPackageManager_Resources {
 		"databaseApp.Android.dll",
 		"databaseApp.dll",
 		"FormsViewGroup.dll",
+		"Plugin.LocalNotifications.Abstractions.dll",
+		"Plugin.LocalNotifications.dll",
 		"SQLite-net.dll",
 		"SQLitePCLRaw.batteries_green.dll",
 		"SQLitePCLRaw.batteries_v2.dll",
