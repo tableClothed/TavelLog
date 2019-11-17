@@ -2,23 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TrVELLog"
+             BackgroundColor="{StaticResource newColor}"
              x:Class="TrVELLog.MainPage">
 
     <StackLayout VerticalOptions="Center" Margin="20">
-        <Image x:Name="iconImage"
-               HeightRequest="70"
-               Aspect="AspectFit"
-               HorizontalOptions="FillAndExpand"
-               Margin="0, 0, 0, 50"/>
+        <Label Text="ATRIS" Font="Bold, 40" TextColor="{StaticResource textColor}" HorizontalOptions="Center"></Label>
+
         <Entry x:Name="emailEntry"
             Keyboard="Email"
+               TextColor="{StaticResource textColor}"
             Placeholder="Login"
+               PlaceholderColor="{StaticResource textColor}"
             Text="{Binding Email, Mode=TwoWay}"/>
+        <!--<BoxView WidthRequest="150" HeightRequest="5" BackgroundColor="#8ad6ea"/>-->
 
         <Entry x:Name="passwordEntry"
             IsPassword="True"
+               TextColor="{StaticResource textColor}"
             Placeholder="Hasło"
+               PlaceholderColor="{StaticResource textColor}"
             Text="{Binding Password,Mode=TwoWay}"/>
+        <!--<BoxView WidthRequest="150" HeightRequest="5" BackgroundColor="#8ad6ea" Margin="0, 0, 0, 40"/>-->
         
         <Button 
             x:Name="LoginButton"
@@ -26,11 +30,20 @@
             Command="{Binding LoginCommand}"
             CommandParameter="{Binding User}"
             Style="{StaticResource normalButton}"
-            TextColor="Beige"/>
+            TextColor="{StaticResource newColor}"
+            Margin="0, 40, 0, 0"/>
+        <Label Text="Zapomniałeś hasła?"
+               HorizontalOptions="Center"
+               TextColor="{StaticResource textColor}"
+               Margin="0, 10, 0,20"></Label>
 
         <Button x:Name="registerUserButton"
                 Text="Register"
-                HorizontalOptions="End"
+                VerticalOptions="End"
+                HorizontalOptions="Center"
+                    Style="{StaticResource normalButton}"
+                     TextColor="{StaticResource newColor}"
+                Padding="40, 15, 40, 15"
                 Command="{Binding RegisterNavigationCommand}"/>
     </StackLayout>
 

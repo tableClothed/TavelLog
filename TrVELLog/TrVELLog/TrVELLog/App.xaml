@@ -4,11 +4,13 @@
              x:Class="TrVELLog.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="newColor">#FA5</Color>
+            <Color x:Key="newColor">#0083A7</Color>
+            <Color x:Key="textColor">#FFFFFF</Color>
+            
 
             <Style TargetType="Button" x:Key="normalButton">
                 
-                <Setter Property="BackgroundColor" Value="{StaticResource newColor}"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource textColor}"></Setter>
                 <Setter Property="TextColor" Value="{StaticResource newColor}"></Setter>
 
             </Style>

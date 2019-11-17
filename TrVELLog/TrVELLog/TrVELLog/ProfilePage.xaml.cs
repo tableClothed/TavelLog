@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using ImageCircle.Forms.Plugin.Abstractions;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 using TrVELLog.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ImageCircle.Forms.Plugin;
 
 namespace TrVELLog
 {
@@ -16,19 +18,30 @@ namespace TrVELLog
 		public ProfilePage ()
 		{
 			InitializeComponent ();
-		}
 
-        protected async override void OnAppearing()
+            CreatePicture();
+
+        }
+
+        protected override void OnAppearing()
         {
             base.OnAppearing();
 
-            var posts = await Post.Read();
 
-            var categoriesCount = Post.PostCategories(posts);
+        }
 
-            categoriesListView.ItemsSource = categoriesCount;
-
-            postCountLabel.Text = posts.Count.ToString();
+        private void CreatePicture()
+        {
+            new CircleImage
+            {
+                BorderColor = Color.White,
+                BorderThickness = 3,
+                HeightRequest = 150,
+                WidthRequest = 150,
+                Aspect = Aspect.AspectFill,
+                HorizontalOptions = LayoutOptions.Center,
+                Source = UriImageSource.FromUri(new Uri("http://upload.wikimedia.org/wikipedia/commons/5/55/Tamarin_portrait.JPG"))
+            };
         }
     }
 }

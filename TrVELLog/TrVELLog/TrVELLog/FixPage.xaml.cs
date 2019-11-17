@@ -1,27 +1,27 @@
-﻿using Naxam.Controls.Forms;
+﻿using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TrVELLog.ViewModels;
+using TrVELLog.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace TrVELLog
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class HomePage : TabbedPage
-    {
-        HomeVM viewModel;
-		public HomePage ()
+	public partial class FixPage : ContentPage
+	{
+		public FixPage()
 		{
 			InitializeComponent ();
-
-            viewModel = new HomeVM();
-            BindingContext = viewModel;
-
-            
 		}
+
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+
+        }
     }
 }

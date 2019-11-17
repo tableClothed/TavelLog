@@ -10,7 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TrVELLog.Models;
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
+using Position = Xamarin.Forms.Maps.Position;
 
 namespace TrVELLog
 {
@@ -107,7 +109,7 @@ namespace TrVELLog
 
             
         }
-        private void MoveMap(Position position)
+        private void MoveMap(Plugin.Geolocator.Abstractions.Position position)
         {
             var center = new Xamarin.Forms.Maps.Position(position.Latitude, position.Longitude);
             var span = new Xamarin.Forms.Maps.MapSpan(center, 1, 1);
@@ -115,32 +117,83 @@ namespace TrVELLog
 
             using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
             {
-                conn.CreateTable<Post>();
-                var posts = conn.Table<Post>().ToList();
 
-                DisplayInMap(posts);
+                //var posts = conn.Table<Post>().ToList();
+                var places = new List<Place>();
+
+                DisplayInMap(places);
 
             }
         }
 
-        private void DisplayInMap(List<Post> posts)
+        private void DisplayInMap(List<Place> places)
         {
             try
             {
-                foreach (var post in posts)
+                var pin1 = new Pin
                 {
-                    var position = new Xamarin.Forms.Maps.Position(post.Latitude, post.Longitude);
+                    Type = PinType.Place,
+                    Position = new Position(50.867219, 20.649602),
+                Label = "Pływalnie Orka",
+                    Address = "Kujawska 18",
+                };
 
-                    var pin = new Xamarin.Forms.Maps.Pin()
-                    {
-                        Type = Xamarin.Forms.Maps.PinType.SavedPin,
-                        Position = position,
-                        Label = post.VenueName,
-                        Address = post.Address
-                    };
+                var pin3 = new Pin
+                {
+                    Type = PinType.Place,
+                    Position = new Position(50.988294, 20.679538),
+                    Label = "Kryta pływalnia JURAJSKA",
+                    Address = "ul. Jurajska 7"
+                };
 
-                    locationsMap.Pins.Add(pin);
-                }
+                var pin4 = new Pin
+                {
+                    Type = PinType.Place,
+                    Position = new Position(50.8899294, 20.079538),
+                    Label = "Hala Widowiskowo-Sportowa",
+                    Address = "ul. Żytnia 1"
+                };
+
+                var pin5 = new Pin
+                {
+                    Type = PinType.Place,
+                    Position = new Position(50.8088294, 20.0579538),
+                    Label = "Hala Legionów",
+                    Address = "ul. Boczna 15"
+                };
+                
+                var pin2 = new Pin
+                {
+                    Type = PinType.Place,
+                    Position = new Position(51.088294, 20.789538),
+                    Label = "Hala Sportowa w Dąbrowie",
+                    Address = "ul. Warszawska 338"
+                };
+
+                var pin6 = new Pin
+                {
+                    Type = PinType.Place,
+                    Position = new Position(49.9988294, 23.879538),
+                    Label = "Hala Mosir",
+                    Address = "ul. Krakowska 72"
+                };
+
+                var pin7 = new Pin
+                {
+                    Type = PinType.Place,
+                    Position = new Position(50.666294, 22.669538),
+                    Label = "Boisko sportowe",
+                    Address = "przy szkole"
+                };
+
+                locationsMap.Pins.Add(pin1);
+                locationsMap.Pins.Add(pin2);
+                locationsMap.Pins.Add(pin3);
+                locationsMap.Pins.Add(pin4);
+                locationsMap.Pins.Add(pin5);
+                locationsMap.Pins.Add(pin6);
+                locationsMap.Pins.Add(pin7);
+                //}
             } catch (NullReferenceException nre)
             {
 

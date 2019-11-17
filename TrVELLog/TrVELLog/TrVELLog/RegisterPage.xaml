@@ -4,32 +4,44 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="TrVELLog.RegisterPage">
-    
-        <StackLayout VerticalOptions="Center" Margin="20" x:Name="containerStackLayout">
-          <Entry x:Name="emailEntry"
-                 Text="{Binding Email, Mode=TwoWay}"
-                 Placeholder="Email address"
-                TextColor="{StaticResource newColor}"/>
+             x:Class="TrVELLog.RegisterPage"
+             BackgroundColor="{StaticResource newColor}">
 
-          <Entry x:Name="passwordEntry"
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" Margin="20" x:Name="containerStackLayout">
+            <Label FontSize="Title" FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start"
+                   TextColor="{StaticResource textColor}"
+                   >ATRIS</Label>
+            <Entry x:Name="emailEntry"
+                 Text="{Binding Email, Mode=TwoWay}"
+                 Placeholder="EMAIL"
+                TextColor="{StaticResource textColor}"/>
+            <BoxView WidthRequest="150" HeightRequest="5" BackgroundColor="#8ad6ea"/>
+
+            <Entry x:Name="passwordEntry"
                  IsPassword="true"
                  Text="{Binding Password, Mode=TwoWay}"
-                 Placeholder="Password"
-                TextColor="{StaticResource newColor}"/>
+                 Placeholder="HASŁO"
+                TextColor="{StaticResource textColor}"
+              />
+            <BoxView WidthRequest="150" HeightRequest="5" BackgroundColor="#8ad6ea"/>
 
-          <Entry x:Name="confirmPasswordEntry"
+            <Entry x:Name="confirmPasswordEntry"
                  Text="{Binding ConfirmPassword, Mode=TwoWay}"
-                 Placeholder="Confirm password"
-                 TextColor="{StaticResource newColor}"
+                 Placeholder="POTWIERDŹ HASŁO"
+                 TextColor="{StaticResource textColor}"
                  IsPassword="True"/>
+            <BoxView WidthRequest="150" HeightRequest="5" BackgroundColor="#8ad6ea"/>
 
-          <Button x:Name="registerButton"
+        <Button x:Name="registerButton"
                   Margin="0,50,0,0"
-                  Text="Register"
+                  Text="REJESTRACJA"
                   Command="{Binding RegisterCommand}"
                   CommandParameter="{Binding User}"
-                Style="{StaticResource normalButton}"
-                TextColor="Beige"/>
+                Style="{StaticResource normalButton}"/>
         </StackLayout>
+    </ContentPage.Content>
+        
 </ContentPage>
