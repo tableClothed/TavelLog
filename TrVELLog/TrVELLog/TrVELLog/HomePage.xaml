@@ -1,24 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<xaml:TabbedPage
-    xmlns:xaml="http://xamarin.com/schemas/2014/forms/design"
+<internals:TabbedPage
+    xmlns:internals="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TrVELLog"
-     BackgroundColor="Aqua"
+             BackgroundColor="#003642"
              x:Class="TrVELLog.HomePage">
 
  
 <local:ProfilePage
-    Icon="ic_action_person.png"
+    Icon="profil.png"
     Title="PROFIL"/>
 <local:MapPage
-    Icon="ic_action_map.png"
+    Icon="list.png"
     Title="REZERWACJA"/>
     
 <local:HistoryPage
-    Icon="ic_action_home.png"
+    Icon="notif.png"
     Title="POWIADOMIENIA"/>
 <local:FixPage
-    Icon="ic_action_home.png"
-    Title="WYLOGUJ"/>
+    Icon="logout.png"
+    Title="WYLOGUJ"
+    />
 
-</xaml:TabbedPage>
+</internals:TabbedPage>

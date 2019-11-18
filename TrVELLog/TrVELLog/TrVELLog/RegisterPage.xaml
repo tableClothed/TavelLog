@@ -9,31 +9,27 @@
 
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Margin="20" x:Name="containerStackLayout">
-            <Label FontSize="Title" FontAttributes="Bold"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Start"
-                   TextColor="{StaticResource textColor}"
-                   >ATRIS</Label>
+
             <Entry x:Name="emailEntry"
                  Text="{Binding Email, Mode=TwoWay}"
                  Placeholder="EMAIL"
+                   PlaceholderColor="{StaticResource textColor}"
                 TextColor="{StaticResource textColor}"/>
-            <BoxView WidthRequest="150" HeightRequest="5" BackgroundColor="#8ad6ea"/>
 
             <Entry x:Name="passwordEntry"
                  IsPassword="true"
                  Text="{Binding Password, Mode=TwoWay}"
                  Placeholder="HASŁO"
+                   PlaceholderColor="{StaticResource textColor}"
                 TextColor="{StaticResource textColor}"
               />
-            <BoxView WidthRequest="150" HeightRequest="5" BackgroundColor="#8ad6ea"/>
 
             <Entry x:Name="confirmPasswordEntry"
                  Text="{Binding ConfirmPassword, Mode=TwoWay}"
                  Placeholder="POTWIERDŹ HASŁO"
+                   PlaceholderColor="{StaticResource textColor}"
                  TextColor="{StaticResource textColor}"
                  IsPassword="True"/>
-            <BoxView WidthRequest="150" HeightRequest="5" BackgroundColor="#8ad6ea"/>
 
         <Button x:Name="registerButton"
                   Margin="0,50,0,0"
